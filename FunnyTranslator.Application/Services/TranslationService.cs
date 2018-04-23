@@ -13,7 +13,7 @@ namespace FunnyTranslator.Application.Services
         public async Task<TranslationResult> TranslateAsync(string textToTranslate, ITranslationStrategy strategy)
         {
             //Basic validation
-            if(string.IsNullOrEmpty(textToTranslate))
+            if(string.IsNullOrWhiteSpace(textToTranslate))
                 return new TranslationResult(new List<string>() { "Text To Translate can't be null or empty" });
 
             var result = await strategy.Execute(textToTranslate);
