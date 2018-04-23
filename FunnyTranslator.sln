@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunnyTranslator.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunnyTranslator.Data", "FunnyTranslator.Data\FunnyTranslator.Data.csproj", "{D3DD67ED-B05D-431E-B9B7-6EBA4863FA6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTranslationsApi", "FunTranslationsApi\FunTranslationsApi.csproj", "{8C28210F-8B3F-4A9B-9807-2F93977112DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunnyTranslator", "FunnyTranslator", "{6E22E39A-8257-40C2-87C5-FEE8A13B0018}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,20 @@ Global
 		{D3DD67ED-B05D-431E-B9B7-6EBA4863FA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3DD67ED-B05D-431E-B9B7-6EBA4863FA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3DD67ED-B05D-431E-B9B7-6EBA4863FA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C28210F-8B3F-4A9B-9807-2F93977112DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C28210F-8B3F-4A9B-9807-2F93977112DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C28210F-8B3F-4A9B-9807-2F93977112DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C28210F-8B3F-4A9B-9807-2F93977112DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E88F2131-207D-4DC9-B9D6-7E4172223E75} = {6E22E39A-8257-40C2-87C5-FEE8A13B0018}
+		{33680DC8-D339-4E9C-B82C-5E406A64ABC8} = {6E22E39A-8257-40C2-87C5-FEE8A13B0018}
+		{15D9F17A-5622-4AF7-B1CA-8C04564EC679} = {6E22E39A-8257-40C2-87C5-FEE8A13B0018}
+		{FAD675DE-90A9-4C65-AFF7-C5BCABD87B99} = {6E22E39A-8257-40C2-87C5-FEE8A13B0018}
+		{D3DD67ED-B05D-431E-B9B7-6EBA4863FA6F} = {6E22E39A-8257-40C2-87C5-FEE8A13B0018}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A65EA77D-0F96-4A4E-9454-4B6DB018C806}

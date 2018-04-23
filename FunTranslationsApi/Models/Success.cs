@@ -1,4 +1,4 @@
-﻿namespace FunnyTranslator.Application.FunTranslationsAPI.Models
+﻿namespace FunTranslationsApi.Models
 {
     public class Success
     {

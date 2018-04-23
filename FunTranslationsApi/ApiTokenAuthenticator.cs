@@ -1,7 +1,7 @@
 ﻿using RestSharp;
 using RestSharp.Authenticators;
 
-namespace FunnyTranslator.Application.FunTranslationsAPI
+namespace FunTranslationsApi
 {
     public class ApiTokenAuthenticator : IAuthenticator
     {

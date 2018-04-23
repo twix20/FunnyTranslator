@@ -23,7 +23,6 @@ namespace FunnyTranslator.Data.Context
 
             builder.Entity<AppLog>().HasKey(m => m.Id);
             builder.Entity<AppLog>().Property(m => m.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
         }
     }
 }

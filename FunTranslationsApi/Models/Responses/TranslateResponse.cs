@@ -1,4 +1,4 @@
-﻿namespace FunnyTranslator.Application.FunTranslationsAPI.Models.Responses
+﻿namespace FunTranslationsApi.Models.Responses
 {
     public class TranslateResponse
     {

@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
-using FunnyTranslator.Application.FunTranslationsAPI.Models.Requests;
-using FunnyTranslator.Application.FunTranslationsAPI.Models.Responses;
+using FunnyTranslator.Application.FunTranslationsAPI;
+using FunTranslationsApi.Models.Requests;
+using FunTranslationsApi.Models.Responses;
 using RestSharp;
 
-namespace FunnyTranslator.Application.FunTranslationsAPI
+namespace FunTranslationsApi
 {
     public class FunTranslationsClient
     {
-        public readonly string BASE_URL = "http://api.funtranslations.com";
+        private readonly string BASE_URL = "http://api.funtranslations.com";
 
         private readonly IRestClient _client;
 
