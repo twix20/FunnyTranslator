@@ -57,78 +57,21 @@
 <div class="bg-info" id="translation-result">
 </div>
 
-@* TODO: move to translator.js *@
 @section scripts {
-    
     <script id="success-translation-result-template" type="text/x-custom-template">
         <div class="container-fluid py-5">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h4 class="alert-heading"><b>Well done!</b></h4>
-                    <p>You have just translated text to ###TRANSLATION_METHOD###</p>
+                    <p>You have just translated text to ###TRANSLATION_METHOD###!</p>
                     <hr>
                     <p class="mb-0">###TRANSLATED_TEXT###</p>
                 </div>
             </div>
         </div>
     </script>
-
-    <script>
-        function presentTranslatedText(translationInfo) {
-
-            var template = $('#success-translation-result-template')
-                .html()
-                .replace(/###TRANSLATION_METHOD###/g, translationInfo.TranslationMethod)
-                .replace(/###TRANSLATED_TEXT###/g, translationInfo.TranslatedText);
-
-            
-            $('#translation-result').empty().append(template);
-        }
-
-        function displayError(error) {
-            alert(error);
-        }
-
-        $(function() {
-            $('#btn-translate').click(function (event) {
-                //Button load status
-                const $target = $('#btn-translate');
-                $target.attr("disabled", true);
-                $target.append('<i class="fa fa-spinner fa-pulse"></i>');
-
-                $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("Translate", "Translator")",
-                    data: JSON.stringify({
-                        'text': $('#textToTranslateTextArea').val(),
-                        'translateType': $('#translateTypeSelect').val()
-                    }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(data) {
-                        if (data.IsSuccess)
-                        {
-                            presentTranslatedText(data.Result);
-                        }
-                        else
-                        {
-                            data.Errors.forEach(function(error) {
-                                displayError(error);
-                            });
-                        }
-                    },
-                    error: function (data) {
-                        displayError(data.responseJSON.ErrorMessage);
-                    },
-                    failure: function (errMsg) {
-                        displayError(errMsg);
-                    },
-                    complete: function (data) {
-                        $target.find("i.fa-spinner").remove();
-                        $target.attr("disabled", false);
-                    }
-                });
-            });
-        });
+    <script type="text/javascript">
+        const POST_TRANSLATE_URL = "@Url.Action("Translate", "Translator")";
     </script>
+    <script src="~/Scripts/translator.js"></script>
 }
