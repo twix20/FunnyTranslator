@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FunnyTranslator.Core.Entities;
 
 namespace FunnyTranslator.Data.Context
@@ -13,7 +8,7 @@ namespace FunnyTranslator.Data.Context
     {
         public DbSet<AppLog> Logs { get; set; }
 
-        public AppDbContext(string connectionString) : base(connectionString)
+        public AppDbContext() : base("AppDbContext")
         {
         }
 
