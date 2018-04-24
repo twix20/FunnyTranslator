@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using RestSharp;
 
 namespace FunnyTranslator.Application.FunTranslationsAPI
@@ -13,7 +14,7 @@ namespace FunnyTranslator.Application.FunTranslationsAPI
         {
             var response = await requestTask;
             if (!response.IsSuccessful)
-                throw response.ErrorException;
+                throw new HttpException((int)response.StatusCode, response.StatusDescription);
 
             return response.Data;
         }

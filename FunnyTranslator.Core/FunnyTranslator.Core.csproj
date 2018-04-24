@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AppLog.cs" />
+    <Compile Include="GenericObjectResult.cs" />
+    <Compile Include="Interfaces\ITranslationStrategy.cs" />
+    <Compile Include="Interfaces\ITranslationStrategyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranslationResult.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

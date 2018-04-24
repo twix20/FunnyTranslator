@@ -8,6 +8,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
 using FunnyTranslator.Application;
+using FunnyTranslator.Application.Interfaces.Services;
 using FunnyTranslator.Data.Context;
 
 namespace FunnyTranslator
@@ -27,7 +28,7 @@ namespace FunnyTranslator
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterAssemblyModules(typeof(MvcApplication).Assembly);
+            builder.RegisterAssemblyModules(typeof(ITranslationService).Assembly);
 
             builder.RegisterType<AppDbContext>().InstancePerRequest();
 

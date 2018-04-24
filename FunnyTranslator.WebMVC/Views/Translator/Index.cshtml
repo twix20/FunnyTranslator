@@ -1,4 +1,4 @@
-﻿
+﻿@model FunnyTranslator.Models.TranslatorViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -14,8 +14,7 @@
                 <p class="">by Piotr Markiewicz</p>
 
                 <a class="nav-link" href="#translator">
-                    <i class="d-block fa fa-angle-down pt-5 fa-3x">
-                    </i>
+                    <i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
                 </a>
 
             </div>
@@ -36,7 +35,10 @@
 
                 <div class="col-md-3 d-flex flex-column justify-content-center">
                     <select class="form-control form-control-sm">
-                        <option>leetspeak</option>
+                        @foreach(var method in Model.SupportedTranslationMethods)
+                        {
+                            <option>@method</option>
+                        }
                     </select>
                 </div>
 
@@ -49,12 +51,12 @@
         </form>
     </div>
 </div>
-<!-- Speakers -->
-<div class="py-5 bg-light" id="speakers">
+<!-- TranslationResult -->
+<div class="py-5 bg-light" id="translation-result">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1>Speakers</h1>
+                <h1>translation-result</h1>
             </div>
         </div>
     </div>

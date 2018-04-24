@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using FunnyTranslator.Application.FunTranslationsAPI;
 using FunnyTranslator.Application.Interfaces;
 using FunnyTranslator.Application.Interfaces.Services;
+using FunnyTranslator.Core;
+using FunnyTranslator.Core.Interfaces;
 using FunTranslationsApi;
 using FunTranslationsApi.Models.Requests;
 
@@ -16,7 +18,7 @@ namespace FunnyTranslator.Application
     /// </summary>
     public class FunTranslationsStrategy : ITranslationStrategy
     {
-        private FunTranslationsClient _client;
+        private readonly FunTranslationsClient _client;
         private readonly string _translationType;
 
         public FunTranslationsStrategy(string translationType, string apiToken = default(string))
@@ -32,7 +34,6 @@ namespace FunnyTranslator.Application
                 TranslationType = _translationType,
                 Text = textToTranslate
             });
-
             return new TranslationResult(responseData.Contents.Translated);
         }
     }

@@ -118,10 +118,17 @@
       <Project>{FAD675DE-90A9-4C65-AFF7-C5BCABD87B99}</Project>
       <Name>FunnyTranslator.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FunnyTranslator.Core\FunnyTranslator.Core.csproj">
+      <Project>{15d9f17a-5622-4af7-b1ca-8c04564ec679}</Project>
+      <Name>FunnyTranslator.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FunnyTranslator.WebMVC\FunnyTranslator.WebMVC.csproj">
       <Project>{E88F2131-207D-4DC9-B9D6-7E4172223E75}</Project>
       <Name>FunnyTranslator.WebMVC</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
