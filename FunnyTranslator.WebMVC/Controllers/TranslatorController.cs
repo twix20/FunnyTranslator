@@ -37,6 +37,13 @@ namespace FunnyTranslator.Controllers
         [HandleHttpExceptionError]
         public async Task<ActionResult> Translate(TranslateFormViewModel model)
         {
+            return Json(new TranslationResult(new TranslationInfo()
+            {
+                TranslationMethod = "leetspeak",
+                TextToTranslate = "asdsaddsadsa",
+                TranslatedText = "asdasdsadsasd"
+            }));
+
             var translationResult = await _translationService.TranslateAsync(model.Text, model.TranslateType);
             return Json(translationResult);
         }
