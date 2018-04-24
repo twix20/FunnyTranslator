@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
-using FunnyTranslator.Application;
 using FunnyTranslator.Application.Interfaces.Services;
 using FunnyTranslator.Data.Context;
 
@@ -17,6 +12,8 @@ namespace FunnyTranslator
     {
         protected void Application_Start()
         {
+            log4net.Config.XmlConfigurator.Configure();
+
             ConfigureContainer();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -29,7 +26,6 @@ namespace FunnyTranslator
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterAssemblyModules(typeof(ITranslationService).Assembly);
-
             builder.RegisterType<AppDbContext>().InstancePerRequest();
 
             var container = builder.Build();

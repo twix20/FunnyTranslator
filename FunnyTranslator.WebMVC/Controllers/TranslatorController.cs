@@ -10,6 +10,7 @@ using FunnyTranslator.Core.Entities;
 using FunnyTranslator.Data.Context;
 using FunnyTranslator.Infrastructure;
 using FunnyTranslator.Models;
+using log4net;
 
 namespace FunnyTranslator.Controllers
 {
@@ -39,10 +40,7 @@ namespace FunnyTranslator.Controllers
         [HandleHttpExceptionError]
         public async Task<ActionResult> Translate(TranslateFormViewModel model)
         {
-
             var translationResult = await _translationService.TranslateAsync(model.Text, model.TranslateType);
-
-
             return Json(translationResult);
         }
     }

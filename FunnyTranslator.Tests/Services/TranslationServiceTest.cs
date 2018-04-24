@@ -7,6 +7,7 @@ using FunnyTranslator.Application.Interfaces;
 using FunnyTranslator.Application.Interfaces.Services;
 using FunnyTranslator.Application.Services;
 using FunnyTranslator.Core.Interfaces;
+using log4net;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -21,13 +22,14 @@ namespace FunnyTranslator.Tests.Services
         [SetUp]
         public void Init()
         {
+            var loggerStub = Substitute.For<ILog>();
             var strategyFactoryStub = Substitute.For<ITranslationStrategyFactory>();
 
             _strategyStub = Substitute.For<ITranslationStrategy>();
             strategyFactoryStub.CreateForMethod(Arg.Is("leetspeak")).Returns(_strategyStub);
             strategyFactoryStub.CreateForMethod(Arg.Is("NotExistingMethod")).Returns((ITranslationStrategy)null);
 
-            _service = new TranslationService(strategyFactoryStub);
+            _service = new TranslationService(strategyFactoryStub, loggerStub);
         }
 
         [Test]

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.log4net;
 using FunnyTranslator.Application.Interfaces.Services;
 using FunnyTranslator.Application.Services;
 using FunnyTranslator.Core.Interfaces;
@@ -19,5 +20,9 @@ namespace FunnyTranslator.Application
             builder.RegisterType<TranslationService>().As<ITranslationService>();
             base.Load(builder);
         }
+    }
+
+    public class LogginModule : Log4NetModule
+    {
     }
 }

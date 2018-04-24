@@ -13,7 +13,7 @@ namespace FunnyTranslator.Core
         {
         }
 
-        public TranslationResult(ICollection<string> errors) : base(errors)
+        public TranslationResult() : base(new List<string>())
         {
         }
 

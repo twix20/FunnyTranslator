@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FunnyTranslator.Models;
+using log4net;
+using Newtonsoft.Json;
 
 namespace FunnyTranslator.Infrastructure
 {
@@ -26,6 +25,9 @@ namespace FunnyTranslator.Infrastructure
                     ErrorMessage = exception.Message
                 }
             };
+
+            var logger = LogManager.GetLogger(typeof(HandleHttpExceptionErrorAttribute));
+            logger.Error(exception.Message, exception);
         }
     }
 }
