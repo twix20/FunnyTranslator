@@ -45,50 +45,99 @@
             </div>
             <div class="form-group row">
                 <div class="col-12 text-center">
-                    <button id="btn-translate" type="button" class="btn btn-primary">Translate!</button>
+                    <button id="btn-translate" type="button" class="btn btn-primary">
+                        Translate!
+                    </button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 <!-- TranslationResult -->
-<div class="py-5 bg-light" id="translation-result">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>translation-result</h1>
-            </div>
-        </div>
-    </div>
+<div class="bg-info" id="translation-result">
+
 </div>
 
 @* TODO: move to translator.js *@
 @section scripts {
+    
+    <script id="hidden-template" type="text/x-custom-template">
+        <div class="container-fluid py-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p>You have just converted text to </p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                </div>
+            </div>
+        </div>
+    </script>
+
     <script>
+
+        var exSuccess = {
+            "TranslationMethod": "FunTranslationsStrategy leetspeak",
+            "TranslatedText": "zDSd4",
+            "TextToTranslate": "asdsda"
+        };
+
+        function presentTranslatedText(translationInfo) {
+            console.log(translationInfo);
+
+            var template = $('#hidden-template').html();
+
+            $('#translation-result').replaceWith(template);
+        }
+
+        function displayError(error) {
+            alert(error);
+        }
+        const $target = $('#btn-translate');
+
         $(function() {
-            $('#btn-translate').click(function() {
+            $('#btn-translate').click(function (event) {
+
+                //const $target = $('#btn-translate');
+
+                $target.attr("disabled", true);
+                $target.append('<i class="fa fa-spinner fa-pulse"></i>');
+
+                presentTranslatedText(exSuccess);
 
                 const textToTranslate = $('#textToTranslateTextArea').val();
                 const translateType = $('#translateTypeSelect').val();
 
-                const formData = JSON.stringify({ 'text': textToTranslate, 'translateType': translateType });
-
                 $.ajax({
                     type: "POST",
                     url: "@Url.Action("Translate", "Translator")",
-                    data: formData,
+                    data: JSON.stringify({ 'textxxxxxxxxxxxx': textToTranslate, 'translateType': translateType }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function(data) {
-                        alert(data);
+                        console.log(data);
+
+                        if (data.IsSuccess) {
+                            presentTranslatedText(data.Result);
+                        }
+                        else {
+                            data.Errors.forEach(function(error) {
+                                displayError(error);
+                            });
+                        }
                     },
                     error: function (data) {
                         console.log(data);
-                        alert(data.responseJSON.ErrorMessage);
 
+                        displayError(data.responseJSON.ErrorMessage);
                     },
-                    failure: function(errMsg) {
-                        alert(errMsg);
+                    failure: function (errMsg) {
+                        console.log(data);
+                        displayError(errMsg);
+                    },
+                    complete: function (data) {
+                        $target.find("i.fa-spinner").remove();
+                        $target.attr("disabled", false);
                     }
                 });
             });

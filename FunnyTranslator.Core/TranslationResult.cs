@@ -7,14 +7,22 @@ using FunnyTranslator.Application;
 
 namespace FunnyTranslator.Core
 {
-    public class TranslationResult : GenericObjectResult<string, string>
+    public class TranslationResult : GenericObjectResult<TranslationInfo, string>
     {
-        public TranslationResult(string translatedText) : base(translatedText)
+        public TranslationResult(TranslationInfo info) : base(info)
         {
         }
 
         public TranslationResult(ICollection<string> errors) : base(errors)
         {
         }
+
+    }
+
+    public class TranslationInfo
+    {
+        public string TranslationMethod { get; set; }
+        public string TranslatedText { get; set; }
+        public string TextToTranslate { get; set; }
     }
 }

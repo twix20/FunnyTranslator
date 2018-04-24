@@ -34,7 +34,13 @@ namespace FunnyTranslator.Application
                 TranslationType = _translationType,
                 Text = textToTranslate
             });
-            return new TranslationResult(responseData.Contents.Translated);
+
+            return new TranslationResult(new TranslationInfo()
+            {
+                TextToTranslate = textToTranslate,
+                TranslatedText = responseData.Contents.Translated,
+                TranslationMethod = $"{_translationType}"
+            });
         }
     }
 }
