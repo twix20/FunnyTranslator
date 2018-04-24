@@ -9,6 +9,7 @@ namespace FunnyTranslator.Models
     public class TranslateFormViewModel
     {
         [Required]
+        [Display(Name = "Text To Translate")]
         public string Text { get; set; }
 
         [Required]

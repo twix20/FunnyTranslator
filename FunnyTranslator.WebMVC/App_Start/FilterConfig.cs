@@ -8,6 +8,7 @@ namespace FunnyTranslator
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new InternationalizationAttribute());
             filters.Add(new HandleErrorAttribute());
         }
     }
