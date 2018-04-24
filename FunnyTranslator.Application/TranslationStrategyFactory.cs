@@ -12,6 +12,7 @@ namespace FunnyTranslator.Application
     {
         readonly Dictionary<string, ITranslationStrategy> _translationStrategies = new Dictionary<string, ITranslationStrategy>()
         {
+            { "uppercase", new UppercaseTransaltionStrategy()},
             { "leetspeak", new FunTranslationsStrategy("leetspeak")},
             { "yoda", new FunTranslationsStrategy("yoda")},
         };
