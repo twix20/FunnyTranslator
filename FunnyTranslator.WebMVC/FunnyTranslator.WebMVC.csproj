@@ -157,12 +157,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TranslatorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\aquamarine.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -208,14 +210,39 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\navbar-ontop.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\smooth-scroll.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Static\conference\cover.jpg" />
+    <Content Include="Static\conference\logo_1.png" />
+    <Content Include="Static\conference\logo_2.png" />
+    <Content Include="Static\conference\logo_3.png" />
+    <Content Include="Static\conference\logo_4.png" />
+    <Content Include="Static\conference\people_1.jpg" />
+    <Content Include="Static\conference\people_2.jpg" />
+    <Content Include="Static\conference\people_3.jpg" />
+    <Content Include="Static\conference\people_4.jpg" />
+    <Content Include="Static\conference\people_5.jpg" />
+    <Content Include="Static\conference\people_6.jpg" />
+    <Content Include="Static\conference\schedule.jpg" />
+    <Content Include="Static\conference\venue.jpg" />
+    <Content Include="Static\styleguide\cover_1.jpg" />
+    <Content Include="Static\styleguide\cover_2.jpg" />
+    <Content Include="Static\styleguide\cover_3.jpg" />
+    <Content Include="Static\styleguide\cover_4.jpg" />
+    <Content Include="Static\styleguide\people_1.jpg" />
+    <Content Include="Static\styleguide\people_2.jpg" />
+    <Content Include="Static\styleguide\people_3.jpg" />
+    <Content Include="Static\styleguide\people_4.jpg" />
+    <Content Include="Static\styleguide\people_5.jpg" />
+    <Content Include="Static\styleguide\people_6.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -239,6 +266,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Translator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

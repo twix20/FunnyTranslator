@@ -3,40 +3,104 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#translator">Translate</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <a class="btn navbar-btn mx-2 text-white btn-outline-light" href="#register">Register now</a>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+</nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@RenderBody()
+
+<div>
+    <hr />
+    <!-- Footer -->
+    <footer id="contact" class="text-md-left text-center p-4 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="my-3 col-lg-4 col-md-6">
+                    <h3>Conference Pingendo</h3>
+                    <p class="text-muted">December 12-14, 2017</p>
+                    <p class="my-3">
+                        <a href="https://goo.gl/maps/ayn28vkB5F92" target="blank" class="text-muted">
+                            Empire State building 350 5th Ave,
+                            <br>New York, NY 10118
+                        </a>
+                    </p>
+                    <a class="btn btn-lg btn-primary" href="#">Register now</a>
+                </div>
+                <div class="my-3 col-lg-4 col-md-6">
+                    <h3>Contact us</h3>
+                    <form>
+                        <fieldset class="form-group my-3">
+                            <input type="email" class="form-control" id="Input Email" placeholder="Email">
+                        </fieldset>
+                        <fieldset class="form-group my-3">
+                            <input type="message" class="form-control" id="Input Message" placeholder="Message">
+                        </fieldset>
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-1"> </div>
+                <div class="my-3 col-lg-3">
+                    <h3>Follow</h3>
+                    <a href="https://www.facebook.com" target="blank">
+                        <i class="fa fa-facebook-square text-muted fa-3x m-2"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="blank">
+                        <i class="fa fa-3x fa-instagram text-muted m-2"></i>
+                    </a>
+                    <a href="https://twitter.com" target="blank">
+                        <i class="fa fa-3x fa-twitter m-2 text-muted"></i>
+                    </a>
+                    <a href="https://plus.google.com" target="blank">
+                        <i class="fa fa-3x fa-google-plus-official text-muted m-2"></i>
+                    </a>
+                    <a href="https://pinterest.com" target="blank">
+                        <i class="fa fa-3x text-muted fa-pinterest-p m-2"></i>
+                    </a>
+                    <a href="https://www.youtube.com" target="blank">
+                        <i class="fa fa-3x text-muted fa-youtube-play m-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted">© Copyright 2018 Pingendo - All rights reserved. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/js")
+@RenderSection("scripts", required: false)
 </body>
 </html>
